@@ -1,0 +1,4 @@
+/usr/bin/cmake -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" /tmp/tmp.MyZYJ8AOXo
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /tmp/tmp.MyZYJ8AOXo/cmake-build-cmk-docker

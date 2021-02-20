@@ -1,0 +1,18 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/tmp/tmp.MyZYJ8AOXo/main.c
+stdio.h
+-
+math.h
+/tmp/tmp.MyZYJ8AOXo/math.h
+
+/tmp/tmp.MyZYJ8AOXo/math.h
+stdio.h
+-
+
