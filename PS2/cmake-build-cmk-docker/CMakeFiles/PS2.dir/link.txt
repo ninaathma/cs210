@@ -1,0 +1,1 @@
+/usr/bin/cc -g   CMakeFiles/PS2.dir/main.c.o  -o PS2 
