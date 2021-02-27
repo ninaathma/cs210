@@ -1,0 +1,63 @@
+2.1
+
+int a[] = {-72,-90,-100,-36,-21,-15,-76,-6,63,41,99,27,3,66,19,16,27,47,0,23};
+large_and_small(arr1, length, &largest, &smallest);
+
+> largest: 99
+  smallest: -100
+
+int a[] = {72,90,100,36,21,15,76,-6,63,41,99,27,3,66,19,16,27,47,0,23\};
+large_and_small(arr1, length, &largest, &smallest);
+
+> largest: 100
+  smallest: -6
+
+2.2
+
+void main() {
+    double a[] = \{15.26, 28.20, 6.71, 72.22, 92.85, 15.50, 85.64, 57.41, 44.40, 72.91\};
+    double b[] = \{9.17, 4.8, 10.9, 10.12, 17.18, 3.9, 6.19, 5.4, 3.13, 6.1\};
+
+    double *arr1=&a, *arr2=&b;
+    int length, length1=sizeof(a)/sizeof(*arr1), length2=sizeof(b)/sizeof(*arr2);
+
+    if (length1==length2) {
+        length=length1;
+        printf("%f", inner_product(arr1, arr2, length));
+    }
+}
+
+> 4158.761200
+
+
+2.3
+
+void main() {
+    double a[] = {72, 90,100,36,21,15,76,-6,63,41,99,27,3,66,19,16,27,47,0,23};
+    double b[] = {72, 90,100,36,21,15,76,-6,63,41,99,27,3,66,18,16,27,47,0,23};
+    
+    double *arr1=&a, *arr2=&b;
+    int length1=sizeof(a)/sizeof(*arr1), length2=sizeof(b)/sizeof(*arr2);
+
+    if (compareArrays(arr1, length1, arr2, length2)) printf("True");
+    else printf("False");
+
+}
+
+> True
+
+void main() {
+    double a[] = {72, 90,100,36,21,15,76,-6,63,41,99,27,3,66,19,16,27,47,0,23};
+    double b[] = {72, 90,100,36,21,15,76,-6,63,41,99,27,3,66,18,16,27,47,23};
+
+    double *arr1=&a, *arr2=&b;
+    int length1=sizeof(a)/sizeof(*arr1), length2=sizeof(b)/sizeof(*arr2);
+
+    if (compareArrays(arr1, length1, arr2, length2)) printf("True");
+    else printf("False");
+
+    // printf("%f", inner_product(arr1, arr2, length));\
+    //large_and_small(arr1, length, &largest, &smallest);\
+}
+
+> False
