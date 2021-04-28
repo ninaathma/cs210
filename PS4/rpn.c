@@ -76,6 +76,85 @@ double recursivePower(double base, int pow) {
     if(pow <= 0) return 1;
     double result = base*recursivePower(base, pow-1);
     return result;
+}
 
+char* converter(char* expression) {
+    int expressLen = strlen(expression);
+    char endExpression[] = "";
+    char* token;
+    const char space[2] = " ";
+    //get the first token
+    token = strtok(expression, space);
+
+    while(token != NULL) {
+        printStack();
+        bool tokenisOp = isOperator(token);
+        bool tokenRightParen = isRightParen(token);
+        bool tokenLeftParen + isLeftParen(token);
+
+        // if operand, just adds number to final expression
+        if(!tokenisOp && !tokenLeftParen && !tokenRightParen) {
+            char tokenwithspace[] = " ";
+            strcat(tokenWithSpace, token);
+            strcat(endExpression, tokenWithSpace);
+        } //end of if is number
+
+
+        else if (tokenisOp) {
+            //handle if an operator
+            int curTokenPreced = preced(token);
+            node* nodeForOperat = createNode(token, 0, curTokenPreced);
+
+            while((!stackEmpty()) && ((peek()->precendence >= curTokenPreced) ) && (peek()->contents.operator != '(')) {
+                //pop things from stack and add to end expression
+                char fromStack = pop()->contents.operator;
+                char fromStackWithSpace[] = "";
+                strcat(fromStackWithSpace, fromStack);
+                strcat(endExpression, fromStackWithSpace);
+            }
+            push(nodeForOperat);
+        } //end of if is Operator
+
+        else if (isLeftParen(token)) {
+            //push token onto stack
+            int curTokenPreced = preced(token);
+            node* nodeForOperat = createNode(token, 0, curTokenPreced);
+            push(nodeForOperat);
+        } //end of if left parenthesis
+        else if(isRightParen(token)) {
+            while(peek()->contents.operator != ')') {
+                //pop
+                if(stackEmpty()) {
+                    printf("There is an error!");
+                    return NULL;
+                }
+                char fromStack = pop()->contents.operator;
+                char fromStackWithSpace[] = " ";
+                strcat(fromStackWithSpace, fromStack);
+                strcat(endExpression, fromStackWithSpace);
+            }
+            if(peek()->contents.operator == '(') {
+                pop();
+            }
+        }
+
+        //move on to next item
+        token=strtok(NULL, space);
+    }//end of while loop
+
+    //go thru stack if its not empty
+    while(!stackEmpty()) {
+        if(isLeftParen(token) || isRightParen(token)) {
+            printf("Error: mismatch parenthesis.");
+            return NULL;
+        }
+        //push onto end expression
+        char fromStack = pop()->contents.operator;
+        char fromStackWithSpace[] =" ";
+        strcat(fromStackWithSpace, fromStack);
+        strcat(endExpression, fromStackWithSpace);
+    } //end of while loop check at end
+
+    return endExpression;
 }
 

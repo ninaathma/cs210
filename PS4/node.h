@@ -6,9 +6,13 @@
 #define PS4_NODE_H
 
 typedef struct node {
-    double value;
+    union {
+        double value;
+        char operator;
+    } contents;
     int type;
-    struct node* next;
+    int precedence;
+    node *next;
 } node;
 
 node* createNode(int value, int type);

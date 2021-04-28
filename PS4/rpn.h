@@ -10,5 +10,6 @@ double evaluate(char* expression, int* status);
 bool isOperator(char ch);
 double recursivePower(double base, int pow);
 int val1, val2;
+char* converter(char* expression);
 
 #endif //PS4_RPN_H
